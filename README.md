@@ -64,8 +64,8 @@ Cost:       $0. Forever.
 | **Builder — Dark Mode** | **Gradient Theme Preview** |
 | ![](screenshots/03_sunset.png) | ![](screenshots/04_light.png) |
 | **Sunset Theme** | **Light Mode Builder** |
-| ![](screenshots/05_mobile.png) | ![](screenshots/06_generated.png) |
-| **Mobile View** | **Generated Link Page** |
+| ![](screenshots/05_mobile.png) | |
+| **Mobile View** | |
 
 ---
 
