@@ -16,6 +16,8 @@ Beautiful link-in-bio page in 30 seconds. No watermark. No signup. No monthly fe
 [![Single HTML](https://img.shields.io/badge/Single_HTML-No_Deps-6366f1?style=flat-square&logo=html5&logoColor=white)](#)
 [![No Login](https://img.shields.io/badge/No_Login-No_Watermark-06b6d4?style=flat-square&logo=lock&logoColor=white)](#)
 
+### 🔗 [TRY IT NOW → gyoomie.github.io/mimolink](https://gyoomei.github.io/mimolink/)
+
 </div>
 
 ---
