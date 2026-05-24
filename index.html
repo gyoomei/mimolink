@@ -235,18 +235,26 @@ function renderLinks(){
   c.innerHTML=links.map((l,i)=>`
     <div class="link-item">
       <span style="font-size:1.1rem;cursor:grab" title="Icon">⠿</span>
-      <input type="text" value="${l.icon}" placeholder="🔗" style="width:36px;text-align:center;flex:0 0 36px" onchange="links[${i}].icon=this.value;updatePreview()">
-      <input type="text" value="${l.title}" placeholder="Title" onchange="links[${i}].title=this.value;updatePreview()">
-      <input type="text" value="${l.url}" placeholder="URL" onchange="links[${i}].url=this.value;updatePreview()">
+      <input type="text" value="${esc(l.icon)}" placeholder="🔗" style="width:36px;text-align:center;flex:0 0 36px" data-field="icon" data-idx="${i}" oninput="syncLink(this)">
+      <input type="text" value="${esc(l.title)}" placeholder="Title" data-field="title" data-idx="${i}" oninput="syncLink(this)">
+      <input type="text" value="${esc(l.url)}" placeholder="URL" data-field="url" data-idx="${i}" oninput="syncLink(this)">
       <button class="remove-btn" onclick="removeLink(${i})">✕</button>
     </div>
   `).join('');
+}
+function esc(s){return String(s).replace(/"/g,'&quot;').replace(/</g,'&lt;')}
+function syncLink(el){
+  const idx=+el.dataset.idx;const field=el.dataset.field;
+  links[idx][field]=el.value;
+  updatePreview();
 }
 
 function addLink(){links.push({title:'',url:'',icon:'🔗'});renderLinks();updatePreview()}
 function removeLink(i){links.splice(i,1);renderLinks();updatePreview()}
 
+function syncFromDOM(){document.querySelectorAll('.link-item input[data-field]').forEach(el=>{const idx=+el.dataset.idx;const f=el.dataset.field;if(links[idx])links[idx][f]=el.value})}
 function generateHTML(){
+  syncFromDOM();
   const name=document.getElementById('displayName').value||'Your Name';
   const bio=document.getElementById('bio').value||'Your bio here';
   const avatar=document.getElementById('avatarUrl').value;
